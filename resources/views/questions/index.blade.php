@@ -7,8 +7,14 @@
             <div class="col-md-12 mb-5" >
             <div class="card">
                 <div class="card-header" >
+                    <div class="d-flex align-items-center">
+
                     <h2 id="questions_main_title" >All questions</h2>
-                </div>
+
+                    <div class="ml-auto"><a class="btn btn-outline-primary btn-lg" href="{{route('questions.create')}}">Add a Question</a></div>
+                    </div>
+                    @include('layouts._messages')
+                    </div>
 
                 <div class="card-body">
                     @foreach($questions as $question)
@@ -27,14 +33,19 @@
                                 </div>
                             </div>
                             <div class="media-body mt-5">
-                                <h4 class="media-heading question_title">
-                                    <a href="{{$question->url}}">{{$question->title}}</a>
-                                </h4>
+                                <div class="d-flex align-items-center">
+                                <h3 class="media-heading">
+                                    <a class="question_title" href="{{$question->url}}">{{$question->title}}</a>
+                                </h3>
+                                <div class="ml-auto">
+                                    <a href="{{route('questions.edit',$question->id)}}" class=" ml-5 btn btn-outline-info btn-lg">Edit</a>
+                                </div>
+                            </div>
                                     <p class="lead">Asked by <a href="{{$question->user->url}}">{{$question->user->name}}</a>
                                     <small class="muted">{{$question->created_date}}</small>
                                     </p>
 
-                                    <p class="question_body">{{str_limit($question->body,250)}}</p>
+                                    <p class="question_body col-md-10">{{str_limit($question->body,250)}}</p>
                                 <hr>
                             </div>
 

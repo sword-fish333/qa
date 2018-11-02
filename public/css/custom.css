@@ -7,9 +7,13 @@
 }
 .question_title{
     font-family: 'Merriweather', serif;
-    color: black;
+
     font-style: italic;
   margin-bottom: 15px;
+    color:	#B22222;
+}
+.question_title:link {
+color:	#B22222;
 }
 
 .question_body{
@@ -17,4 +21,5 @@
     color: black;
 
 }
+
 

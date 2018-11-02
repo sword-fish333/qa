@@ -18,62 +18,52 @@
             color: #636b6f;
             font-family: 'Nunito', sans-serif;
             font-weight: 200;
-            height: 100vh;
+
             margin: 0;
         }
 
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
+    .nav-link{
+        color: white;
+        font-weight: bold;
+        font-size: 1.4em !important;
+    }
+        .nav-link:hover{
+            color: seagreen;
         }
 
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .links > a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }
     </style>
 </head>
 <body>
-<div class="flex-center position-ref full-height">
+<nav  class=" p-2 navbar-expand-sm bg-dark navbar-dark text-white">
+    <ul class="nav justify-content-end">
     @if (Route::has('login'))
-        <div class="top-right links">
+
+
+
             @auth
-            <a href="{{ url('/home') }}">Home</a>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('questions.index') }}">Questions</a></li>
+
+            <li class="nav-item">
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                       {{Auth::user()->name}}
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+
+                    </div>
+                </div>
+            </li>
             @else
-                <a href="{{ route('login') }}">Login</a>
-                <a href="{{ route('register') }}">Register</a>
+                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('register') }}">Register</a></li>
                 @endauth
-        </div>
-@endif
+            @endif
+        </ul>
+
+
+</nav>
+<div class="flex-center position-ref full-height mt-5">
 
     @yield('content')
 </div>
