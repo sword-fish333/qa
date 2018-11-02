@@ -65,17 +65,35 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+    <nav  class=" p-2 navbar-expand-sm bg-dark navbar-dark text-white">
+        <ul class="nav justify-content-end">
             @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
+
+
+
+                @auth
+                <li class="nav-item"> <a class="nav-link" href="{{ route('questions.index') }}">Questions</a></li>
+
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            {{Auth::user()->name}}
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+
+                        </div>
+                    </div>
+                </li>
+            @else
+                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('register') }}">Register</a></li>
+                @endauth
             @endif
+        </ul>
+
+
+    </nav>
 
             <div class="content">
                 <div class="title m-b-md">

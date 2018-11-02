@@ -32,13 +32,20 @@
                                    {{$question->views." ".str_plural('view',$question->views)}}
                                 </div>
                             </div>
-                            <div class="media-body mt-5">
+                            <div class="media-body">
                                 <div class="d-flex align-items-center">
                                 <h3 class="media-heading">
                                     <a class="question_title" href="{{$question->url}}">{{$question->title}}</a>
                                 </h3>
                                 <div class="ml-auto">
                                     <a href="{{route('questions.edit',$question->id)}}" class=" ml-5 btn btn-outline-info btn-lg">Edit</a>
+                                    <form action="{{route('questions.destroy',$question->id)}}" method="post" class="mt-3 ml-3 form-delete">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" onclick="
+                                        confirm('Are you sure you want to delete this question?')"
+                                                class="btn btn-outline-danger btn-delete btn-lg ">Delete</button>
+                                    </form>
                                 </div>
                             </div>
                                     <p class="lead">Asked by <a href="{{$question->user->url}}">{{$question->user->name}}</a>
