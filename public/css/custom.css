@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Fugaz+One|Merriweather');
+
+#questions_main_title{
+    color: 	#008B8B;
+    font-family: 'Fugaz One', cursive;
+
+}
+.question_title{
+    font-family: 'Merriweather', serif;
+    color: black;
+    font-style: italic;
+}
+
+.question_body{
+    font-family: 'Merriweather', serif;
+    color: black;
+
+}
