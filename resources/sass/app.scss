@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css?family=Fugaz+One|Merriweather');
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
@@ -11,4 +11,38 @@
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.info_question{
+  margin-right:30px;
+  font-size:1em;
+  font-family: 'Merriweather', serif;
+  text-align: center;
+  strong{
+    display: block;
+    font-size: 1.5em;
+  }
+  .votes, .answers{
+  margin-top: 5px;
+    width: 70px;
+    height: 60px;
+
+  }
+.views{
+  margin-top: 10px;
+}
+  .status{
+    &.unanswered{
+      border:none;
+    }
+    &.answered{
+      border: 1px solid $color-green;
+    color:$color-green;
+    }
+
+    &.accepted{
+      background: $color-green;
+      color:$color-white;
+    }
+  }
 }

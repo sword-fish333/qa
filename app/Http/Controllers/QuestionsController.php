@@ -10,7 +10,7 @@ class QuestionsController extends Controller
 
     public function index()
     {
-        $questions=Question::with('user')->first()->paginate(1);
+        $questions=Question::with('user')->first()->paginate(5);
 
     return view('questions.index',array('questions'=>$questions));
 
