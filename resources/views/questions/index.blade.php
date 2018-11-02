@@ -15,8 +15,12 @@
                         <div class="media">
                             <div class="media-body">
                                 <h4 class="media-heading question_title">
-                                    {{$question->title}}
+                                    <a href="{{$question->url}}">{{$question->title}}</a>
                                 </h4>
+                                    <p class="lead">Asked by <a href="{{$question->user->url}}">{{$question->user->name}}</a>
+                                    <small class="muted">{{$question->created_date}}</small>
+                                    </p>
+
                                     <p class="question_body">{{str_limit($question->body,250)}}</p>
                                 <hr>
                             </div>
@@ -25,7 +29,7 @@
 
                         @endforeach
                 </div>
-                <div >
+                <div>
                 {{$questions->links()}}
                 </div>
             </div>
