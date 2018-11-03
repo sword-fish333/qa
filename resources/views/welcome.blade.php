@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
-
+        <link rel="stylesheet" href="{{asset('css/custom.css')}}" type="text/css">
+        <link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
@@ -49,18 +50,22 @@
                 font-size: 84px;
             }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+
 
             .m-b-md {
                 margin-bottom: 30px;
+            }
+
+            .links a{
+                margin-left: 20px;
+                font-size: 1.6em;
+                font-weight: bold;
+
+            }
+            .dropdown-menu a{
+                font-weight: bold;
+                font-size: 1.5em !important;
+            color: black !important;
             }
         </style>
     </head>
@@ -95,12 +100,15 @@
 
     </nav>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+            <div class="container">
 
-                <div class="links">
+                    <div class="jumbotron bg-dark text-center">
+               <h1 id="home_title"> Q & A</h1>
+                    </div>
+
+
+                <div class="row links d-flex justify-content-center">
+
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
@@ -110,5 +118,6 @@
                 </div>
             </div>
         </div>
+    <script src="{{asset('js/app.js')}}"></script>
     </body>
 </html>
